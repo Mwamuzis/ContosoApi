@@ -53,3 +53,21 @@ git push origin "$current_branch"
 
 print_line
 echo "✅ Done! Changes pushed successfully."
+
+
+
+#wa
+
+# Get the URL of the 'origin' remote
+repo_url=$(git config --get remote.origin.url)
+
+# Convert SSH to HTTPS if needed
+repo_url=${repo_url/git@github.com:/https:\/\/github.com\/}
+repo_url=${repo_url/.git/}
+
+# Open in default browser (macOS)
+open "$repo_url"
+
+# OR (Linux)
+xdg-open "$repo_url"
+
